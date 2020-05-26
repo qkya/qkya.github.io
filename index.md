@@ -1,37 +1,133 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-You can use the [editor on GitHub](https://github.com/qkya/qkya.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+   
+    <meta name="referrer" content="always" />
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.428571429;
+            color: #4d4d4d;
+        }
 
-### Markdown
+        main {
+            padding: 70px 15px;
+            text-align: center;
+        }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        .title {
+            margin: 0 0 30px;
+            line-height: 1.2;
+        }
 
-```markdown
-Syntax highlighted code block
+        .text {
+            margin: 0 0 20px;
+            line-height: 1.6;
+        }
 
-# Header 1
-## Header 2
-### Header 3
+        code {
+            display: block;
+            word-break: break-word;
+        }
 
-- Bulleted
-- List
+        .button {
+            display: inline-block;
+            vertical-align: middle;
+            min-width: 200px;
+            margin-bottom: 30px;
+            background-image: none;
+            padding: 13px 15px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            background-color: #67b279;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
 
-1. Numbered
-2. List
+        .button:focus {
+            box-shadow: 0 0 8px #67b279;
+            outline: 0;
+        }
 
-**Bold** and _Italic_ and `Code` text
+        footer {
+            max-width: 400px;
+            margin: 0 auto;
+            font-size: 13px;
+        }
 
-[Link](url) and ![Image](src)
-```
+        .link {
+            color: #67b279;
+        }
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+        .link:hover,
+        .link:focus {
+            text-decoration: none;
+        }
+    </style>
+</head>
 
-### Jekyll Themes
+<body>
+    <main>
+🙋‍♀️
+      <p class="text">
+            You are about to go to the following page:
+            <code id="currentUrl">https://example.org/</code>
+        </p>
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/qkya/qkya.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+        <button type="button" class="button" id="redirectButton">
+            Take me there
+        </button>
 
-### Support or Contact
+        <footer>
+         
+        </footer>
+    </main>
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    <script type="text/javascript">
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        var url = getParameterByName("url");
+        var currentUrl = document.getElementById('currentUrl');
+
+        if (currentUrl) {
+            currentUrl.innerText = url;
+        }
+
+        function performRedirect() {
+            // Rick-rolling in case of wrong URL
+            window.location.href = url || "";
+        }
+
+        var redirectButton = document.getElementById('redirectButton');
+
+        if (redirectButton) {
+            redirectButton.addEventListener('click', performRedirect);
+        }
+    </script>
+
+    <body>
+</html>
